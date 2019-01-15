@@ -14,6 +14,10 @@
 		BBB87DEB21EE664A00226DCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB87DE921EE664A00226DCE /* LaunchScreen.storyboard */; };
 		BBB87DFB21EE7CAD00226DCE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB87DFA21EE7CAD00226DCE /* Constants.swift */; };
 		BBB87DFD21EE7CBD00226DCE /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB87DFC21EE7CBD00226DCE /* Functions.swift */; };
+		BBB87E0321EE7E7700226DCE /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BBB87DFF21EE7E7700226DCE /* ProximaNova-Regular.otf */; };
+		BBB87E0421EE7E7700226DCE /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BBB87E0021EE7E7700226DCE /* ProximaNova-Bold.otf */; };
+		BBB87E0521EE7E7700226DCE /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BBB87E0121EE7E7700226DCE /* ProximaNova-Semibold.otf */; };
+		BBB87E0621EE7E7700226DCE /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = BBB87E0221EE7E7700226DCE /* ProximaNova-Light.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		BBB87DEC21EE664A00226DCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBB87DFA21EE7CAD00226DCE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BBB87DFC21EE7CBD00226DCE /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		BBB87DFF21EE7E7700226DCE /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
+		BBB87E0021EE7E7700226DCE /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.otf"; sourceTree = "<group>"; };
+		BBB87E0121EE7E7700226DCE /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
+		BBB87E0221EE7E7700226DCE /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,8 @@
 				BBB87DF521EE7C0300226DCE /* Services */,
 				BBB87DF621EE7C0600226DCE /* Extensions  */,
 				BBB87DF721EE7C0E00226DCE /* Supporting Files */,
+				BBB87DFA21EE7CAD00226DCE /* Constants.swift */,
+				BBB87DFC21EE7CBD00226DCE /* Functions.swift */,
 			);
 			path = "Weather-App";
 			sourceTree = "<group>";
@@ -78,6 +88,7 @@
 		BBB87DF321EE7BF500226DCE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BBB87DE421EE664900226DCE /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -85,6 +96,7 @@
 		BBB87DF421EE7C0000226DCE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BBB87DE221EE664900226DCE /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -106,16 +118,24 @@
 		BBB87DF721EE7C0E00226DCE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BBB87DFE21EE7E5600226DCE /* Fonts */,
 				BBB87DE021EE664900226DCE /* AppDelegate.swift */,
-				BBB87DE221EE664900226DCE /* ViewController.swift */,
-				BBB87DE421EE664900226DCE /* Main.storyboard */,
 				BBB87DE721EE664A00226DCE /* Assets.xcassets */,
 				BBB87DE921EE664A00226DCE /* LaunchScreen.storyboard */,
 				BBB87DEC21EE664A00226DCE /* Info.plist */,
-				BBB87DFA21EE7CAD00226DCE /* Constants.swift */,
-				BBB87DFC21EE7CBD00226DCE /* Functions.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BBB87DFE21EE7E5600226DCE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BBB87E0021EE7E7700226DCE /* ProximaNova-Bold.otf */,
+				BBB87E0221EE7E7700226DCE /* ProximaNova-Light.otf */,
+				BBB87DFF21EE7E7700226DCE /* ProximaNova-Regular.otf */,
+				BBB87E0121EE7E7700226DCE /* ProximaNova-Semibold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,8 +197,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBB87DEB21EE664A00226DCE /* LaunchScreen.storyboard in Resources */,
+				BBB87E0521EE7E7700226DCE /* ProximaNova-Semibold.otf in Resources */,
+				BBB87E0321EE7E7700226DCE /* ProximaNova-Regular.otf in Resources */,
+				BBB87E0621EE7E7700226DCE /* ProximaNova-Light.otf in Resources */,
 				BBB87DE821EE664A00226DCE /* Assets.xcassets in Resources */,
 				BBB87DE621EE664900226DCE /* Main.storyboard in Resources */,
+				BBB87E0421EE7E7700226DCE /* ProximaNova-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
