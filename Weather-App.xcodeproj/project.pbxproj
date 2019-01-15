@@ -12,6 +12,8 @@
 		BBB87DE621EE664900226DCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB87DE421EE664900226DCE /* Main.storyboard */; };
 		BBB87DE821EE664A00226DCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB87DE721EE664A00226DCE /* Assets.xcassets */; };
 		BBB87DEB21EE664A00226DCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB87DE921EE664A00226DCE /* LaunchScreen.storyboard */; };
+		BBB87DFB21EE7CAD00226DCE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB87DFA21EE7CAD00226DCE /* Constants.swift */; };
+		BBB87DFD21EE7CBD00226DCE /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB87DFC21EE7CBD00226DCE /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		BBB87DE721EE664A00226DCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBB87DEA21EE664A00226DCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBB87DEC21EE664A00226DCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBB87DFA21EE7CAD00226DCE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BBB87DFC21EE7CBD00226DCE /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,64 @@
 		BBB87DDF21EE664900226DCE /* Weather-App */ = {
 			isa = PBXGroup;
 			children = (
+				BBB87DF221EE7BD600226DCE /* Models */,
+				BBB87DF321EE7BF500226DCE /* Views */,
+				BBB87DF421EE7C0000226DCE /* Controllers */,
+				BBB87DF521EE7C0300226DCE /* Services */,
+				BBB87DF621EE7C0600226DCE /* Extensions  */,
+				BBB87DF721EE7C0E00226DCE /* Supporting Files */,
+			);
+			path = "Weather-App";
+			sourceTree = "<group>";
+		};
+		BBB87DF221EE7BD600226DCE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BBB87DF321EE7BF500226DCE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BBB87DF421EE7C0000226DCE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BBB87DF521EE7C0300226DCE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BBB87DF621EE7C0600226DCE /* Extensions  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Extensions ";
+			sourceTree = "<group>";
+		};
+		BBB87DF721EE7C0E00226DCE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				BBB87DE021EE664900226DCE /* AppDelegate.swift */,
 				BBB87DE221EE664900226DCE /* ViewController.swift */,
 				BBB87DE421EE664900226DCE /* Main.storyboard */,
 				BBB87DE721EE664A00226DCE /* Assets.xcassets */,
 				BBB87DE921EE664A00226DCE /* LaunchScreen.storyboard */,
 				BBB87DEC21EE664A00226DCE /* Info.plist */,
+				BBB87DFA21EE7CAD00226DCE /* Constants.swift */,
+				BBB87DFC21EE7CBD00226DCE /* Functions.swift */,
 			);
-			path = "Weather-App";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +191,8 @@
 			files = (
 				BBB87DE321EE664900226DCE /* ViewController.swift in Sources */,
 				BBB87DE121EE664900226DCE /* AppDelegate.swift in Sources */,
+				BBB87DFB21EE7CAD00226DCE /* Constants.swift in Sources */,
+				BBB87DFD21EE7CBD00226DCE /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
