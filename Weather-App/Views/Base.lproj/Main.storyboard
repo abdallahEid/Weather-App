@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nCi-P8-oXX">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -25,17 +25,17 @@
             <objects>
                 <viewController id="kbg-de-xdR" customClass="ForecastViewController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YbB-o7-6HG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2px Line" translatesAutoresizingMaskIntoConstraints="NO" id="ibb-zH-mzJ">
-                                <rect key="frame" x="0.0" y="64" width="320" height="2"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="Woh-Av-v7u"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pbp-xE-uCp">
-                                <rect key="frame" x="0.0" y="67" width="320" height="452"/>
+                                <rect key="frame" x="0.0" y="67" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -65,26 +65,26 @@
             <objects>
                 <viewController id="Hhl-lf-Dgd" customClass="TodayWeatherViewController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4hk-ue-EiF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2px Line" translatesAutoresizingMaskIntoConstraints="NO" id="oOx-VK-263">
-                                <rect key="frame" x="0.0" y="64" width="320" height="2"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="7aI-af-U0l"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1px divider" translatesAutoresizingMaskIntoConstraints="NO" id="eDT-wK-cgB">
-                                <rect key="frame" x="105" y="273" width="110" height="2"/>
+                                <rect key="frame" x="132.5" y="322.5" width="110" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="Fux-9y-Qyl"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="60x60 Clear Sky (Day)" translatesAutoresizingMaskIntoConstraints="NO" id="qwu-RZ-6dd">
-                                <rect key="frame" x="0.0" y="88" width="320" height="85"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="100"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prague, Czech Republic" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VR-aG-40T">
-                                <rect key="frame" x="64.5" y="181" width="191" height="31"/>
+                                <rect key="frame" x="92" y="196" width="191" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="iNx-Ph-kO4"/>
                                 </constraints>
@@ -93,45 +93,48 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22°C  |  Sunny" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIv-cq-lNB">
-                                <rect key="frame" x="89.5" y="220" width="141" height="23"/>
+                                <rect key="frame" x="117" y="235" width="141" height="23"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="23"/>
                                 <color key="textColor" red="0.1843137255" green="0.56862745100000001" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1px divider" translatesAutoresizingMaskIntoConstraints="NO" id="SfE-DN-Gnj">
-                                <rect key="frame" x="105" y="410" width="110" height="2"/>
+                                <rect key="frame" x="132.5" y="509" width="110" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="HtJ-9B-1Ir"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="12x12 Current Location (Other)" translatesAutoresizingMaskIntoConstraints="NO" id="M9a-tB-hGJ">
-                                <rect key="frame" x="45.5" y="181" width="11" height="31"/>
+                                <rect key="frame" x="73" y="196" width="11" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="11" id="Wpc-QL-pm9"/>
                                     <constraint firstAttribute="height" constant="31" id="Yfy-Ug-HMj"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lu4-LP-iSt">
-                                <rect key="frame" x="137.5" y="452" width="45" height="29"/>
+                                <rect key="frame" x="165" y="551" width="45" height="29"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
                                 <state key="normal" title="Share">
                                     <color key="titleColor" red="0.98431372549019602" green="0.57647058823529407" blue="0.34509803921568627" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="sharePressed:" destination="Hhl-lf-Dgd" eventType="touchUpInside" id="Cer-o0-Flh"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sQQ-bP-ZuW">
-                                <rect key="frame" x="20" y="283" width="280" height="119"/>
+                                <rect key="frame" x="20" y="332.5" width="335" height="168.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="W2Z-Uo-qWd">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="59.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="84.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MEG-NN-tbn">
-                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="59.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="84.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="30x30 Humidity (Other)" translatesAutoresizingMaskIntoConstraints="NO" id="X9D-zI-i57">
-                                                        <rect key="frame" x="31.5" y="8" width="30" height="30"/>
+                                                        <rect key="frame" x="41" y="8" width="30" height="30"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="57%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wey-uS-F5x">
-                                                        <rect key="frame" x="0.0" y="46" width="93.5" height="14"/>
+                                                        <rect key="frame" x="0.0" y="46" width="111.5" height="14"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="14"/>
                                                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -147,13 +150,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACq-3B-ptM">
-                                                <rect key="frame" x="93.5" y="0.0" width="93" height="59.5"/>
+                                                <rect key="frame" x="111.5" y="0.0" width="112" height="84.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="30x30 Precipitation (Other)" translatesAutoresizingMaskIntoConstraints="NO" id="cuv-2R-frp">
-                                                        <rect key="frame" x="31.5" y="8" width="30" height="30"/>
+                                                        <rect key="frame" x="41" y="8" width="30" height="30"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0 mm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZ9-om-QcT">
-                                                        <rect key="frame" x="0.0" y="46" width="93" height="14"/>
+                                                        <rect key="frame" x="0.0" y="46" width="112" height="14"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="14"/>
                                                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -169,13 +172,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rvm-IF-PpF">
-                                                <rect key="frame" x="186.5" y="0.0" width="93.5" height="59.5"/>
+                                                <rect key="frame" x="223.5" y="0.0" width="111.5" height="84.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="30x30 Pressure (Other)" translatesAutoresizingMaskIntoConstraints="NO" id="dGK-Us-9D6">
-                                                        <rect key="frame" x="32" y="8" width="30" height="30"/>
+                                                        <rect key="frame" x="40.5" y="8" width="30" height="30"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1019 hPa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSP-kl-ger">
-                                                        <rect key="frame" x="0.0" y="46" width="93.5" height="14"/>
+                                                        <rect key="frame" x="0.0" y="46" width="111.5" height="14"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="14"/>
                                                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -193,16 +196,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="D6R-S5-Zot">
-                                        <rect key="frame" x="0.0" y="59.5" width="280" height="59.5"/>
+                                        <rect key="frame" x="0.0" y="84.5" width="335" height="84"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6u-FH-PIr">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="59.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="84"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="30x30 Wind (Other)" translatesAutoresizingMaskIntoConstraints="NO" id="OMm-pa-Gh6">
-                                                        <rect key="frame" x="55" y="8" width="30" height="30"/>
+                                                        <rect key="frame" x="69" y="8" width="30" height="30"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 km/h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEz-JD-nA8">
-                                                        <rect key="frame" x="0.0" y="46" width="140" height="14"/>
+                                                        <rect key="frame" x="0.0" y="46" width="167.5" height="14"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="14"/>
                                                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -218,13 +221,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bo7-jz-srd">
-                                                <rect key="frame" x="140" y="0.0" width="140" height="59.5"/>
+                                                <rect key="frame" x="167.5" y="0.0" width="167.5" height="84"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="30x30 Wind Direction (Other)" translatesAutoresizingMaskIntoConstraints="NO" id="SHW-IX-PC8">
-                                                        <rect key="frame" x="55" y="8" width="30" height="30"/>
+                                                        <rect key="frame" x="69" y="8" width="30" height="30"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iV-dY-XiW">
-                                                        <rect key="frame" x="0.0" y="46" width="140" height="14"/>
+                                                        <rect key="frame" x="0.0" y="46" width="167.5" height="14"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="14"/>
                                                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -274,6 +277,16 @@
                         <viewLayoutGuide key="safeArea" id="A1Q-TG-bda"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Today" image="25x25 Today Active (Tab)" id="1U5-RV-NoC"/>
+                    <connections>
+                        <outlet property="countryAndCity" destination="4VR-aG-40T" id="qqR-6P-h0T"/>
+                        <outlet property="humidity" destination="wey-uS-F5x" id="MQs-Lr-KHv"/>
+                        <outlet property="precipitation" destination="rZ9-om-QcT" id="Ahi-zH-lbh"/>
+                        <outlet property="pressure" destination="FSP-kl-ger" id="5wh-ws-GW4"/>
+                        <outlet property="statusIcon" destination="qwu-RZ-6dd" id="8AP-xu-395"/>
+                        <outlet property="temperatureAndStatus" destination="nIv-cq-lNB" id="Rg1-zB-m2J"/>
+                        <outlet property="windDirection" destination="9iV-dY-XiW" id="0HD-H1-HjP"/>
+                        <outlet property="windSpeed" destination="SEz-JD-nA8" id="QLY-80-sRe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4XS-ua-KAr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -284,7 +297,7 @@
             <objects>
                 <navigationController id="nCi-P8-oXX" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SYf-gi-Djd">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
@@ -296,11 +309,11 @@
             </objects>
             <point key="canvasLocation" x="-1134" y="-13"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Title-->
         <scene sceneID="L78-Vf-uwE">
             <objects>
                 <tabBarController id="uTs-Kz-DTd" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="RX5-h4-Tbp"/>
+                    <navigationItem key="navigationItem" title="Title" id="RX5-h4-Tbp"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="03V-mb-fWu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

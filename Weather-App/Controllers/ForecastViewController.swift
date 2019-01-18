@@ -10,12 +10,24 @@ import UIKit
 
 class ForecastViewController: UIViewController {
 
+    // MARK: ------------ Outlets & Variables --------
+    
     @IBOutlet var table: UITableView!
+    
+    // MARK: ------------- viewDidLoad & viewDidAppear & ... ----------
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureTable()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.navigationBar.topItem?.title = city
+    }
+    
+    // MARK: ------------ Actions & Functions --------
     
     func configureTable(){
         table.delegate = self
@@ -25,6 +37,8 @@ class ForecastViewController: UIViewController {
     }
     
 }
+
+// MARK:------------ Delegates & Data Sources ------------
 
 extension ForecastViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
