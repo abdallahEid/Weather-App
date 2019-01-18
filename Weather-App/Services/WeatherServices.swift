@@ -12,23 +12,15 @@ import Alamofire
 class WeatherServices {
     
     func getTodayWeather(cityName: String, completionHandlerForGetTodayWeather: @escaping(_ success:Bool,_ data: Weather?,_ error:String?) ->  Void ){
-        let url = Constants.BASEURL 
+        
+        let url = Constants.BASEURL + "/weather"
         let parameters:Parameters = [
             "appid": Constants.APPID,
             "q": cityName
         ]
         
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON { (response) in
-//            print("Request: \(String(describing: response.request))")   // original url request
-//            print("Response: \(String(describing: response.response))") // http url response
-//            print("Result: \(response.result)")                         // response serialization result
-            
-//            if let json = response.result.value {
-//
-//            }
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
+            if let data = response.data {
                 do {
                     let weather = try JSONDecoder().decode(Weather.self, from: data)
                     completionHandlerForGetTodayWeather(true,weather,nil)
@@ -36,6 +28,35 @@ class WeatherServices {
                 catch{
                     completionHandlerForGetTodayWeather(false,nil,"Failed to decode data")
                     return
+                }
+            }
+        }
+    }
+    
+    func getForecast(cityName: String, completionHandlerForGetForecast: @escaping(_ success:Bool,_ data: [Weather]?,_ error:String?) ->  Void ){
+    
+        let url = Constants.BASEURL + "/forecast"
+        let parameters:Parameters = [
+            "appid": Constants.APPID,
+            "q": cityName
+        ]
+        
+        Alamofire.request(url, method: .get, parameters: parameters).responseJSON { (response) in
+            
+            if response.result.error == nil {
+                if let object = response.result.value as? [String:Any] {
+                    guard let data = try? JSONSerialization.data(withJSONObject: object["list"]!, options: []) else {
+                        return
+                    }
+                    
+                    do {
+                        let weathers = try JSONDecoder().decode([Weather].self, from: data)
+                        completionHandlerForGetForecast(true,weathers,nil)
+                    }
+                    catch{
+                        completionHandlerForGetForecast(false,nil,"Failed to decode data")
+                        return
+                    }
                 }
             }
         }

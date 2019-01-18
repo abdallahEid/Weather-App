@@ -13,4 +13,5 @@ class Weather:Codable {
     let rain: Rain?
     let weather: [WeatherBasic]?
     let main: WeatherAttributes?
+    let dt_txt:String? // date 
 }

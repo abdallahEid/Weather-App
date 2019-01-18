@@ -15,7 +15,7 @@ import Foundation
 
 class Constants {
     static let APPID = "50e4573975f2239e269aace87dc3e0b0"
-    static let BASEURL = "http://api.openweathermap.org/data/2.5/weather"
+    static let BASEURL = "http://api.openweathermap.org/data/2.5"
     
 }
 

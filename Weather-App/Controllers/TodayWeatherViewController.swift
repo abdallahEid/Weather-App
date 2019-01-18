@@ -67,7 +67,9 @@ class TodayWeatherViewController: UIViewController {
                     
                     self.humidity.text = String(format: "%g",(weather.main?.humidity)!) + "%"
                     self.pressure.text = String(format: "%g",(weather.main?.pressure)!) + " hPa"
-                    self.precipitation.text = String(format: "%g",(weather.main?.precipitation)!) + " mm"
+                    if let rain = weather.rain {
+                        self.precipitation.text = String(format: "%g",(rain.h3)!) + " mm"
+                    }
                     self.windSpeed.text = String(format: "%g",(weather.wind?.speed)!) + " km / h"
                     
                     let directions = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
@@ -103,17 +105,24 @@ extension TodayWeatherViewController: CLLocationManagerDelegate {
         let geoLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
         geoCoder.reverseGeocodeLocation(geoLocation, completionHandler: {
                 placemarks, error -> Void in
-                guard let placeMark = placemarks!.first else { return }
-                if let currentCity = placeMark.subAdministrativeArea {
-                    print(city)
-                    city = currentCity
-                    self.getTodayWeather(cityName: city)
-                    self.countryAndCity.text = city
+            guard let placeMark = placemarks!.first else { return }
+            
+            if placeMark.subAdministrativeArea != nil {
+                city = placeMark.subAdministrativeArea!
+            }
+            else {
+                if placeMark.administrativeArea != nil {
+                    city = placeMark.administrativeArea!
                 }
-                if let country = placeMark.country {
-                    print(country)
-                    self.countryAndCity.text = self.countryAndCity.text! + ", " + country
-                }
+            }
+            
+            self.getTodayWeather(cityName: city)
+            self.countryAndCity.text = city
+            
+            if let country = placeMark.country {
+                print(country)
+                self.countryAndCity.text = self.countryAndCity.text! + ", " + country
+            }
 
         })
     }

@@ -12,5 +12,4 @@ class WeatherAttributes: Codable {
     let temp:Double?
     let pressure:Double?
     let humidity:Double?
-    let precipitation:Double? = 0.0
 }

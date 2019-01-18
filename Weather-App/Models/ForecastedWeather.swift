@@ -1,5 +1,5 @@
 //
-//  Rain.swift
+//  ForecastedWeather.swift
 //  Weather-App
 //
 //  Created by Abdallah Eid on 1/18/19.
@@ -7,8 +7,3 @@
 //
 
 import Foundation
-
-class Rain: Codable {
-    let h3: Double? = 0.0
-
-}
