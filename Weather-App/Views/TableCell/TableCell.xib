@@ -97,6 +97,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="cellImageView" destination="PKy-dw-bf8" id="isJ-s2-ekV"/>
                 <outlet property="hour" destination="aEL-li-xN7" id="lrW-bd-pyM"/>
                 <outlet property="imageView" destination="PKy-dw-bf8" id="T2K-ZR-rkL"/>
                 <outlet property="smallContainerView" destination="41Z-xo-ovl" id="n3y-ej-x61"/>

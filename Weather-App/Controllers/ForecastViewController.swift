@@ -15,6 +15,7 @@ class ForecastViewController: UIViewController {
     @IBOutlet var table: UITableView!
     
     var weathers:[Weather] = []
+    var weathersForTable:[[Weather]] = []
     
     // MARK: ------------- viewDidLoad & viewDidAppear & ... ----------
     
@@ -52,11 +53,40 @@ class ForecastViewController: UIViewController {
             if data != nil{
                 self.weathers = data!
                 DispatchQueue.main.async {
-                    self.table.reloadData()
+                    self.makeWeathersForTable()
                 }
             }
             /// Stop Activity Indicator
         })
+    }
+    
+    func makeWeathersForTable(){
+        var cnt = 0
+        var numberOfSections = 0
+        if let thisHourWeather = weathers.first?.dt_txt! {
+            if changeDisplayOfDate(dateFromAPI: thisHourWeather) != "00:00" {
+                numberOfSections = 6
+            } else {
+                numberOfSections = 5
+            }
+        }
+        while (cnt < numberOfSections) {
+            let day = Calendar.current.date(byAdding: .day, value: cnt, to: Date())
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let stringDateFormatedLikeDateFromAPI = dateFormatter.string(from: day!)
+            
+            let weatherAccordingToADay = weathers.filter {
+                let stringDateFromAPI = String($0.dt_txt!.prefix(10))
+                print("here", stringDateFromAPI)
+                return stringDateFormatedLikeDateFromAPI == stringDateFromAPI
+            }
+            weathersForTable.append(weatherAccordingToADay)
+            cnt += 1
+        }
+        print(weathersForTable.count, "lalala")
+        table.reloadData()
     }
     
     func changeDisplayOfDate(dateFromAPI: String) -> String{
@@ -73,47 +103,46 @@ class ForecastViewController: UIViewController {
 // MARK:------------ Delegates & Data Sources ------------
 
 extension ForecastViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return weathersForTable.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let day = Calendar.current.date(byAdding: .day, value: section, to: Date())
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let stringDateFormatedLikeDateFromAPI = dateFormatter.string(from: day!)
-        
-        let weatherAccordingToADay = weathers.filter {
-            let index = $0.dt_txt!.index(of: " ")!
-            let stringDateFromAPI = String($0.dt_txt![..<index])
-            return stringDateFormatedLikeDateFromAPI == stringDateFromAPI
-        }
-        
-        return weatherAccordingToADay.count
+        return weathersForTable[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell") as! TableCell
         
-        cell.hour.text = "14:00"
-        cell.temperature.text = "\(Int((weathers[indexPath.row].main?.temp)! - 273.15))°"
-        cell.weather.text = weathers[indexPath.row].weather?.first?.main
+        cell.selectionStyle = .none
+        cell.temperature.text = "\(Int((weathersForTable[indexPath.section][indexPath.row].main?.temp)! - 273.15))°"
+        cell.weather.text = weathersForTable[indexPath.section][indexPath.row].weather?.first?.description
+        cell.hour.text = changeDisplayOfDate(dateFromAPI: weathersForTable[indexPath.section][indexPath.row].dt_txt!)
         
-        cell.hour.text = changeDisplayOfDate(dateFromAPI: weathers[indexPath.row].dt_txt!)
-        print(changeDisplayOfDate(dateFromAPI: (weathers.first?.dt_txt!)!))
+        if weathersForTable[indexPath.section][indexPath.row].sys?.pod == "d" {
+            // day
+            if let imagePath = Constants.images.day.smallSize[(weathersForTable[indexPath.section][indexPath.row].weather?.first?.description)!] {
+                cell.cellImageView.image  = UIImage(named: imagePath)
+            } else {
+                
+                cell.cellImageView.image  = UIImage(named: Constants.images.day.smallSize[(weathersForTable[indexPath.section][indexPath.row].weather?.first?.main)!.lowercased()]!)
+            }
+        }
+        else {
+            // night
+            if let imagePath = Constants.images.night.smallSize[(weathersForTable[indexPath.section][indexPath.row].weather?.first?.description)!] {
+                cell.cellImageView.image  = UIImage(named: imagePath)
+            } else {
+                
+                cell.cellImageView.image  = UIImage(named: Constants.images.night.smallSize[(weathersForTable[indexPath.section][indexPath.row].weather?.first?.main)!.lowercased()]!)
+            }
+        }
+        
+        
         return cell
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        if let thisHourWeather = weathers.first?.dt_txt! {
-            if changeDisplayOfDate(dateFromAPI: thisHourWeather) != "00:00" {
-                return 6
-            }
-            else {
-                return 5
-            }
-        }
-        return 0
-
-    }
-
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
         if section == 0 {

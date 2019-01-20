@@ -8,5 +8,8 @@ target 'Weather-App' do
   # Pods for Weather-App
 
 	pod 'Alamofire'
+    pod 'Firebase/Core'
+    pod 'Firebase/Database'
+    pod 'CodableFirebase'
 
 end

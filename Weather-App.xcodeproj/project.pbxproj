@@ -12,12 +12,14 @@
 		BB18619C21EFC4C900634AA5 /* TodayWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB18619B21EFC4C900634AA5 /* TodayWeatherViewController.swift */; };
 		BB18619F21EFED8900634AA5 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB18619E21EFED8900634AA5 /* TableCell.swift */; };
 		BB1861A121EFED9E00634AA5 /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB1861A021EFED9E00634AA5 /* TableCell.xib */; };
+		BB44808121F3A01C0093F7F9 /* SunInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB44808021F3A01C0093F7F9 /* SunInformation.swift */; };
 		BB4A660621F0C9E400B61022 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A660521F0C9E400B61022 /* UIColor.swift */; };
 		BB4A660A21F0D7AC00B61022 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A660921F0D7AC00B61022 /* Weather.swift */; };
 		BB4A660C21F0D9AC00B61022 /* WeatherServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A660B21F0D9AC00B61022 /* WeatherServices.swift */; };
 		BB4A660E21F0DBC500B61022 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A660D21F0DBC500B61022 /* Wind.swift */; };
 		BB4A661021F0DBDF00B61022 /* WeatherBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A660F21F0DBDF00B61022 /* WeatherBasic.swift */; };
 		BB4A661221F0DBED00B61022 /* WeatherAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4A661121F0DBED00B61022 /* WeatherAttributes.swift */; };
+		BBB09FC521F4981E00895CE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBB09FC421F4981E00895CE1 /* GoogleService-Info.plist */; };
 		BBB87DE121EE664900226DCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB87DE021EE664900226DCE /* AppDelegate.swift */; };
 		BBB87DE621EE664900226DCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB87DE421EE664900226DCE /* Main.storyboard */; };
 		BBB87DE821EE664A00226DCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB87DE721EE664A00226DCE /* Assets.xcassets */; };
@@ -38,12 +40,14 @@
 		BB18619B21EFC4C900634AA5 /* TodayWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWeatherViewController.swift; sourceTree = "<group>"; };
 		BB18619E21EFED8900634AA5 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		BB1861A021EFED9E00634AA5 /* TableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
+		BB44808021F3A01C0093F7F9 /* SunInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunInformation.swift; sourceTree = "<group>"; };
 		BB4A660521F0C9E400B61022 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		BB4A660921F0D7AC00B61022 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		BB4A660B21F0D9AC00B61022 /* WeatherServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServices.swift; sourceTree = "<group>"; };
 		BB4A660D21F0DBC500B61022 /* Wind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
 		BB4A660F21F0DBDF00B61022 /* WeatherBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherBasic.swift; sourceTree = "<group>"; };
 		BB4A661121F0DBED00B61022 /* WeatherAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAttributes.swift; sourceTree = "<group>"; };
+		BBB09FC421F4981E00895CE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBB87DDD21EE664900226DCE /* Weather-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB87DE021EE664900226DCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBB87DE521EE664900226DCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				BB4A660F21F0DBDF00B61022 /* WeatherBasic.swift */,
 				BB4A661121F0DBED00B61022 /* WeatherAttributes.swift */,
 				BBC8884021F21741004B715F /* Rain.swift */,
+				BB44808021F3A01C0093F7F9 /* SunInformation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				BBB87DE021EE664900226DCE /* AppDelegate.swift */,
 				BBB87DE721EE664A00226DCE /* Assets.xcassets */,
 				BBB87DE921EE664A00226DCE /* LaunchScreen.storyboard */,
+				BBB09FC421F4981E00895CE1 /* GoogleService-Info.plist */,
 				BBB87DEC21EE664A00226DCE /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -262,6 +268,7 @@
 			files = (
 				BBB87DEB21EE664A00226DCE /* LaunchScreen.storyboard in Resources */,
 				BBB87E0521EE7E7700226DCE /* ProximaNova-Semibold.otf in Resources */,
+				BBB09FC521F4981E00895CE1 /* GoogleService-Info.plist in Resources */,
 				BBB87E0321EE7E7700226DCE /* ProximaNova-Regular.otf in Resources */,
 				BBB87E0621EE7E7700226DCE /* ProximaNova-Light.otf in Resources */,
 				BBB87DE821EE664A00226DCE /* Assets.xcassets in Resources */,
@@ -284,12 +291,20 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Weather-App/Pods-Weather-App-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -332,6 +347,7 @@
 				BBB87DE121EE664900226DCE /* AppDelegate.swift in Sources */,
 				BBC8884121F21741004B715F /* Rain.swift in Sources */,
 				BB4A660C21F0D9AC00B61022 /* WeatherServices.swift in Sources */,
+				BB44808121F3A01C0093F7F9 /* SunInformation.swift in Sources */,
 				BB18619C21EFC4C900634AA5 /* TodayWeatherViewController.swift in Sources */,
 				BB4A660A21F0D7AC00B61022 /* Weather.swift in Sources */,
 				BBB87DFB21EE7CAD00226DCE /* Constants.swift in Sources */,

@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import FirebaseDatabase
+import CodableFirebase
 
 var city:String!
 
@@ -25,6 +27,8 @@ class TodayWeatherViewController: UIViewController {
     @IBOutlet var countryAndCity: UILabel!
     
     let locationManager = CLLocationManager()
+    var isFunctionCalled = false
+    var ref:DatabaseReference!
 
     // MARK: ------------- viewDidLoad & viewDidAppear & ... ----------
     
@@ -37,6 +41,7 @@ class TodayWeatherViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationController?.navigationBar.topItem?.title = "Today"
+        ref = Database.database().reference()
     }
 
     // MARK: ------------ Actions & Functions --------
@@ -62,8 +67,49 @@ class TodayWeatherViewController: UIViewController {
             }
             
             if let weather = data{
+                
+                let firebaseData = try! FirebaseEncoder().encode(weather)
+                
+                if let uuid = UserDefaults.standard.object(forKey: "uuid") as? String{
+                    self.ref.child("users").child(uuid).child("weather").setValue(firebaseData)
+                }
+                else {
+                    let uuid = UUID().uuidString
+                    self.ref.child("users").child(uuid).child("weather").setValue(firebaseData)
+                    UserDefaults.standard.set(uuid , forKey: "uuid")
+                }
+            
+                
                 DispatchQueue.main.async {
-                    self.temperatureAndStatus.text = String(describing: (weather.main?.temp)!) + "°C | " + (weather.weather?.first?.main)!
+                    let sunrise = Date(timeIntervalSince1970: (weather.sys?.sunrise)!)
+                    let sunset = Date(timeIntervalSince1970: (weather.sys?.sunset)!)
+                    
+                    if Date() > sunrise && Date() < sunset{
+                        // day
+                        if let imagePath = Constants.images.day.bigSize[(weather.weather?.first?.description)!] {
+                            self.statusIcon.image = UIImage(named: imagePath)
+                        } else {
+                            for (key, value) in Constants.images.day.bigSize {
+                                if (weather.weather?.first?.description)!.contains(key) {
+                                    self.statusIcon.image = UIImage(named: value)
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        // night
+                        if let imagePath = Constants.images.night.bigSize[(weather.weather?.first?.description)!] {
+                            self.statusIcon.image = UIImage(named: imagePath)
+                        } else {
+                            for (key, value) in Constants.images.night.bigSize {
+                                if (weather.weather?.first?.description)!.contains(key) {
+                                    self.statusIcon.image = UIImage(named: value)
+                                }
+                            }
+                        }
+                    }
+                    
+                    self.temperatureAndStatus.text = "\(Int((weather.main?.temp)! - 273.15))°C | \((weather.weather?.first?.main)!)"
                     
                     self.humidity.text = String(format: "%g",(weather.main?.humidity)!) + "%"
                     self.pressure.text = String(format: "%g",(weather.main?.pressure)!) + " hPa"
@@ -73,9 +119,13 @@ class TodayWeatherViewController: UIViewController {
                     self.windSpeed.text = String(format: "%g",(weather.wind?.speed)!) + " km / h"
                     
                     let directions = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
-                    let i: Int = Int(((weather.wind?.deg)! + 11.25)/22.5)
+                    if let degree = weather.wind?.deg {
+                        let i = Int((degree + 11.25)/22.5)
+                        self.windDirection.text = String(describing: directions[i % 16])
+                    } else {
+                        self.windDirection.text = " "
+                    }
                     
-                    self.windDirection.text = String(describing: directions[i % 16])
 
                 }
             }
@@ -103,25 +153,49 @@ extension TodayWeatherViewController: CLLocationManagerDelegate {
         
         let geoCoder = CLGeocoder()
         let geoLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        var currentLocation = [
+            "country": "",
+            "city": "",
+            "longitude": "\(location.longitude)",
+            "latitude": "\(location.latitude)"
+        ]
         geoCoder.reverseGeocodeLocation(geoLocation, completionHandler: {
                 placemarks, error -> Void in
-            guard let placeMark = placemarks!.first else { return }
-            
-            if placeMark.subAdministrativeArea != nil {
-                city = placeMark.subAdministrativeArea!
-            }
-            else {
-                if placeMark.administrativeArea != nil {
-                    city = placeMark.administrativeArea!
+            if let placemarks = placemarks {
+                guard let placeMark = placemarks.first else { return }
+                
+                if placeMark.subAdministrativeArea != nil {
+                    city = placeMark.subAdministrativeArea!
                 }
-            }
-            
-            self.getTodayWeather(cityName: city)
-            self.countryAndCity.text = city
-            
-            if let country = placeMark.country {
-                print(country)
-                self.countryAndCity.text = self.countryAndCity.text! + ", " + country
+                else {
+                    if placeMark.administrativeArea != nil {
+                        city = placeMark.administrativeArea!
+                    }
+                }
+                
+                currentLocation["city"] = city
+                
+                if !self.isFunctionCalled {
+                    self.getTodayWeather(cityName: city)
+                    self.isFunctionCalled = true
+                }
+                self.countryAndCity.text = city
+                
+                if let country = placeMark.country {
+                    currentLocation["country"] = country
+                    self.countryAndCity.text = self.countryAndCity.text! + ", " + country
+                }
+                
+                let firebaseData = try! FirebaseEncoder().encode(currentLocation)
+                
+                if let uuid = UserDefaults.standard.object(forKey: "uuid") as? String{
+                    self.ref.child("users").child(uuid).child("location").setValue(firebaseData)
+                }
+                else {
+                    let uuid = UUID().uuidString
+                    self.ref.child("users").child(uuid).child("location").setValue(firebaseData)
+                    UserDefaults.standard.set(uuid , forKey: "uuid")
+                }
             }
 
         })
