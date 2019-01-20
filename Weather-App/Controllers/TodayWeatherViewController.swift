@@ -36,8 +36,13 @@ class TodayWeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureUserLocation()
-        SVProgressHUD.show()
+        if Functions.checkInternet(){
+            configureUserLocation()
+            SVProgressHUD.show()
+        } else {
+            // Offline
+        }
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -150,7 +155,6 @@ extension TodayWeatherViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations.last
         let location = CLLocationCoordinate2DMake(userLocation!.coordinate.latitude, userLocation!.coordinate.longitude)
-        print("locations = \(location.latitude) \(location.longitude)")
         
         let geoCoder = CLGeocoder()
         let geoLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)

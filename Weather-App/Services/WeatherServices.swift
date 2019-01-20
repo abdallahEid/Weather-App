@@ -20,6 +20,12 @@ class WeatherServices {
         ]
         
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON { (response) in
+            
+            guard response.result.error == nil else {
+                completionHandlerForGetTodayWeather(false,nil,"Error in network")
+                return
+            }
+            
             if let data = response.data {
                 do {
                     let weather = try JSONDecoder().decode(Weather.self, from: data)
@@ -42,21 +48,24 @@ class WeatherServices {
         ]
         
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON { (response) in
+           
+            guard response.result.error == nil else {
+                completionHandlerForGetForecast(false,nil,"Error in network")
+                return
+            }
             
-            if response.result.error == nil {
-                if let object = response.result.value as? [String:Any] {
-                    guard let data = try? JSONSerialization.data(withJSONObject: object["list"]!, options: []) else {
-                        return
-                    }
-                    
-                    do {
-                        let weathers = try JSONDecoder().decode([Weather].self, from: data)
-                        completionHandlerForGetForecast(true,weathers,nil)
-                    }
-                    catch{
-                        completionHandlerForGetForecast(false,nil,"Failed to decode data")
-                        return
-                    }
+            if let object = response.result.value as? [String:Any] {
+                guard let data = try? JSONSerialization.data(withJSONObject: object["list"]!, options: []) else {
+                    return
+                }
+                
+                do {
+                    let weathers = try JSONDecoder().decode([Weather].self, from: data)
+                    completionHandlerForGetForecast(true,weathers,nil)
+                }
+                catch{
+                    completionHandlerForGetForecast(false,nil,"Failed to decode data")
+                    return
                 }
             }
         }

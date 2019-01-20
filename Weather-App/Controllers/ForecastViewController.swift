@@ -24,7 +24,11 @@ class ForecastViewController: UIViewController {
         super.viewDidLoad()
         
         configureTable()
-        getForecast(cityName: city)
+        if Functions.checkInternet(){
+            getForecast(cityName: city)
+        } else {
+            // Offline
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,13 +84,11 @@ class ForecastViewController: UIViewController {
             
             let weatherAccordingToADay = weathers.filter {
                 let stringDateFromAPI = String($0.dt_txt!.prefix(10))
-                print("here", stringDateFromAPI)
                 return stringDateFormatedLikeDateFromAPI == stringDateFromAPI
             }
             weathersForTable.append(weatherAccordingToADay)
             cnt += 1
         }
-        print(weathersForTable.count, "lalala")
         table.reloadData()
     }
     

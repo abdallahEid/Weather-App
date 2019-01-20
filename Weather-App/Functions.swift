@@ -12,6 +12,7 @@
 
 import Foundation
 import SVProgressHUD
+import Alamofire
 
 class Functions {
     static func configureLoadingIndicator(){
@@ -19,4 +20,20 @@ class Functions {
         SVProgressHUD.setDefaultAnimationType(.flat)
         SVProgressHUD.setDefaultMaskType(.black)
     }
+    
+    static func showAlert(message:String, viewController:UIViewController)  {
+        let alertController = UIAlertController(title: "Message", message:
+            message, preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default,handler: nil))
+        viewController.present(alertController, animated: true, completion: nil)
+    }
+
+    static func checkInternet() -> Bool{
+        if NetworkReachabilityManager()!.isReachable {
+            return true
+        } else {
+            return false 
+        }
+    }
+    
 }

@@ -8,17 +8,37 @@
 
 import UIKit
 import Firebase
+import Alamofire
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         Functions.configureLoadingIndicator()
         FirebaseApp.configure()
+        
+        // for internet connection
+        let reachabilityManager = NetworkReachabilityManager()
+        reachabilityManager?.startListening()
+        reachabilityManager?.listener = { _ in
+            if let isNetworkReachable = reachabilityManager?.isReachable,
+                isNetworkReachable == false  {
+                SVProgressHUD.dismiss()
+                var vc = self.window?.rootViewController?.presentedViewController
+                while (vc?.presentedViewController != nil)
+                {
+                    vc = vc?.presentedViewController
+                }
+                Functions.showAlert(message: "Unable to reach the network, Please check your internet", viewController: vc ?? (self.window?.rootViewController!)! )
+            } else {
+                
+            }
+        }
+        
         return true
     }
 
