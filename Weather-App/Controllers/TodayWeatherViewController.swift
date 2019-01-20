@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import FirebaseDatabase
 import CodableFirebase
+import SVProgressHUD
 
 var city:String!
 
@@ -36,6 +37,7 @@ class TodayWeatherViewController: UIViewController {
         super.viewDidLoad()
         
         configureUserLocation()
+        SVProgressHUD.show()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,12 +59,11 @@ class TodayWeatherViewController: UIViewController {
     }
     
     func getTodayWeather(cityName:String){
-        /// TODO: Activity Indicator
         WeatherServices.sharedInstance().getTodayWeather(cityName: cityName, completionHandlerForGetTodayWeather: { (success, data, error) in
             guard success else{
                 print ("There is an error: \(error!))")
-                /// Stop Activity Indicator
-                /// Make an alert
+                SVProgressHUD.dismiss()
+                /// TODO: Make an alert
                 return
             }
             
@@ -129,7 +130,7 @@ class TodayWeatherViewController: UIViewController {
 
                 }
             }
-            /// Stop Activity Indicator
+            SVProgressHUD.dismiss()
         })
         
     }

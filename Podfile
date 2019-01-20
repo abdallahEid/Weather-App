@@ -11,5 +11,6 @@ target 'Weather-App' do
     pod 'Firebase/Core'
     pod 'Firebase/Database'
     pod 'CodableFirebase'
+    pod 'SVProgressHUD'
 
 end

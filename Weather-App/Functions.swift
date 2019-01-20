@@ -11,7 +11,12 @@
 */
 
 import Foundation
+import SVProgressHUD
 
 class Functions {
-    
+    static func configureLoadingIndicator(){
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultAnimationType(.flat)
+        SVProgressHUD.setDefaultMaskType(.black)
+    }
 }

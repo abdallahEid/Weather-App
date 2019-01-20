@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ForecastViewController: UIViewController {
 
@@ -41,12 +42,12 @@ class ForecastViewController: UIViewController {
     }
     
     func getForecast(cityName:String){
-        /// TODO: Activity Indicator
+        SVProgressHUD.show()
         WeatherServices.sharedInstance().getForecast(cityName: cityName, completionHandlerForGetForecast: { (success, data, error) in
             guard success else{
                 print ("There is an error: \(error!))")
-                /// Stop Activity Indicator
-                /// Make an alert
+                SVProgressHUD.dismiss()
+                /// TODO: Make an alert
                 return
             }
             
@@ -56,7 +57,7 @@ class ForecastViewController: UIViewController {
                     self.makeWeathersForTable()
                 }
             }
-            /// Stop Activity Indicator
+            SVProgressHUD.dismiss()
         })
     }
     
@@ -117,7 +118,7 @@ extension ForecastViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.selectionStyle = .none
         cell.temperature.text = "\(Int((weathersForTable[indexPath.section][indexPath.row].main?.temp)! - 273.15))°"
-        cell.weather.text = weathersForTable[indexPath.section][indexPath.row].weather?.first?.description
+        cell.weather.text = weathersForTable[indexPath.section][indexPath.row].weather?.first?.description?.capitalized
         cell.hour.text = changeDisplayOfDate(dateFromAPI: weathersForTable[indexPath.section][indexPath.row].dt_txt!)
         
         if weathersForTable[indexPath.section][indexPath.row].sys?.pod == "d" {
